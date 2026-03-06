@@ -8,10 +8,29 @@ interface HomeScreenProps {
 }
 
 export function HomeScreen({ onSelectMagazine }: HomeScreenProps) {
+    const observerRef = useRef<IntersectionObserver | null>(null);
+
     // Focus the main hero play button on mount
     useEffect(() => {
         const playBtn = document.getElementById('hero-play-btn');
         playBtn?.focus();
+
+        // Setup Intersection Observer for scroll animations
+        observerRef.current = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-24');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    // Optional: Unobserve after first animation if you only want it to happen once
+                    // observerRef.current?.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        const elements = document.querySelectorAll('.scroll-animate-section');
+        elements.forEach((el) => observerRef.current?.observe(el));
+
+        return () => observerRef.current?.disconnect();
     }, []);
 
     // Simple categorization helper to slice the images array for swimlanes
@@ -29,7 +48,7 @@ export function HomeScreen({ onSelectMagazine }: HomeScreenProps) {
             {/* Main Content Area (Scrollable) */}
             <main className="absolute inset-0 pl-[120px] overflow-y-auto overflow-x-hidden no-scrollbar pb-32">
                 {/* Dynamic Hero Section */}
-                <section className="relative h-[800px] w-full flex items-end pb-32 px-16 shrink-0">
+                <section className="relative h-[800px] w-full flex items-end pb-32 px-16 shrink-0 scroll-animate-section opacity-0 translate-y-24 transition-all duration-[1200ms] ease-out">
                     {/* Blurred / Generated Background */}
                     <div className="absolute inset-0 z-0 select-none pointer-events-none">
                         <img
@@ -69,7 +88,7 @@ export function HomeScreen({ onSelectMagazine }: HomeScreenProps) {
                 {/* Swimlane Rows */}
                 <div className="relative z-20 flex flex-col gap-16 -mt-16">
                     {rows.map((row, index) => (
-                        <section key={row.id}>
+                        <section key={row.id} className="scroll-animate-section opacity-0 translate-y-24 transition-all duration-1000 ease-out" style={{ transitionDelay: `${index * 100}ms` }}>
                             <h3 className="text-4xl font-primary font-bold mb-8 px-16 text-black/90 dark:text-white/90 drop-shadow-md transition-colors duration-500">{row.title}</h3>
 
                             {/* Horizontal Scroll Area */}
