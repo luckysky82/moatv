@@ -92,7 +92,7 @@ export function PlayerScreen({ imageSrc, onBack }: PlayerScreenProps) {
 
                 <div className="flex-1 flex gap-24 h-full">
                     {/* Left Column: Artwork and Controls */}
-                    <section className="w-[500px] flex flex-col justify-center shrink-0 pl-16">
+                    <section className="w-[500px] flex flex-col pt-12 shrink-0 pl-16">
                         {/* Massive Cover Art */}
                         <div className={`w-[340px] aspect-[1/1.4] mx-auto rounded-2xl shadow-2xl shadow-black/80 overflow-hidden mb-6 transition-transform duration-1000 bg-black/20 ${isPlaying ? 'scale-100 shadow-[0_0_80px_rgba(255,85,0,0.4)]' : 'scale-95'}`}>
                             <img src={imageSrc} alt="Magazine Cover" className="w-full h-full object-contain" />
@@ -148,7 +148,7 @@ export function PlayerScreen({ imageSrc, onBack }: PlayerScreenProps) {
 
                     {/* Right Column: "Lyrics" Style Scrolling Text */}
                     <section
-                        className="flex-1 h-full py-[200px] overflow-y-auto no-scrollbar relative mask-image-vertical"
+                        className="flex-1 h-full pt-[60px] pb-[240px] overflow-y-auto no-scrollbar relative mask-image-vertical"
                         style={{ WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}
                     >
                         <div
