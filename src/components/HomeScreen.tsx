@@ -33,7 +33,7 @@ export function HomeScreen({ onSelectMagazine }: HomeScreenProps) {
                     {/* Blurred / Generated Background */}
                     <div className="absolute inset-0 z-0 select-none pointer-events-none">
                         <img
-                            src="/moatv/img/hero_main.png"
+                            src="/moatv/img/cover_32.png"
                             alt="Hero Background"
                             className="w-full h-full object-cover opacity-80 animate-slow-pan origin-center"
                         />
