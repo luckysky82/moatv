@@ -15,13 +15,13 @@ export function MagazineDetail({ imageSrc, onBack, onPlay }: MagazineDetailProps
 
     // Past Cosmopolitan issues provided by user
     const pastIssues = [
-        '/moatv/img/스크린샷 2026-03-06 오후 3.21.55.png',
-        '/moatv/img/스크린샷 2026-03-06 오후 3.22.01.png',
-        '/moatv/img/스크린샷 2026-03-06 오후 3.22.08.png',
-        '/moatv/img/스크린샷 2026-03-06 오후 3.22.15.png',
-        '/moatv/img/스크린샷 2026-03-06 오후 3.22.22.png',
-        '/moatv/img/스크린샷 2026-03-06 오후 3.22.28.png',
-        '/moatv/img/스크린샷 2026-03-06 오후 3.22.34.png',
+        '/moatv/img/cover_32.png',
+        '/moatv/img/cover_33.png',
+        '/moatv/img/cover_34.png',
+        '/moatv/img/cover_35.png',
+        '/moatv/img/cover_36.png',
+        '/moatv/img/cover_37.png',
+        '/moatv/img/cover_38.png',
     ];
 
     return (
