@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* Hide global scrollbar for TV UI */
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .tv-focus {
+    @apply outline outline-4 outline-primary outline-offset-4 rounded-focus scale-105 transition-transform duration-200 z-50 shadow-2xl;
+    box-shadow: 0 0 30px rgba(255, 85, 0, 0.5);
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
